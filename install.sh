@@ -67,7 +67,7 @@ docker run -d --name=portainer --hostname=portainer --network=host --restart=alw
 sleep 5
 echo "Instalando docker de MARIADB"
 sleep 1
-docker container run --name sql-maria -e MYSQL_ROOT_PASSWORD=12345 -e MYSQL_USER=username -e MYSQL_PASSWORD=12345 -e MYSQL_DATABASE=docker -p 3306:3306 -d mariadb:10 (edited)
+docker container run --name sql-maria -e MYSQL_ROOT_PASSWORD=12345 -e MYSQL_USER=username -e MYSQL_PASSWORD=12345 -e MYSQL_DATABASE=docker -p 3306:3306 -d mariadb:10
 sleep 5
 
 echo "Enhorabuena Docker + Portainer + MariaDB esta instalado"
