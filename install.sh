@@ -25,7 +25,7 @@ echo "Haciendo upgrade"
 echo " "
 echo "-------------------------------"
 sleep 1
-sudo apt-get upgrade
+sudo apt-get upgrade -y
 sleep 5
 clear
 echo "-------------------------------"
@@ -34,7 +34,7 @@ echo "Instalando Certificados"
 echo " "
 echo "-------------------------------"
 sleep 1
-sudo apt-get install ca-certificates
+sudo apt-get install ca-certificates -y
 sleep 5
 echo "-------------------------------"
 echo " "
@@ -42,7 +42,7 @@ echo "Instalando Curl"
 echo " "
 echo "-------------------------------"
 sleep 1
-sudo apt-get install curl
+sudo apt-get install curl -y
 sleep 5
 echo "-------------------------------"
 echo " "
@@ -50,7 +50,7 @@ echo "Instalando gnupg"
 echo " "
 echo "-------------------------------"
 sleep 1
-sudo apt-get install gnupg
+sudo apt-get install gnupg -y
 sleep 5
 echo "-------------------------------"
 echo " "
@@ -58,7 +58,7 @@ echo "Instalando Libreria"
 echo " "
 echo "-------------------------------"
 sleep 1
-sudo apt-get install lsb-release
+sudo apt-get install lsb-release -y
 sleep 5
 clear
 echo "-------------------------------"
@@ -92,7 +92,7 @@ echo "Instalando Docker y dependencias"
 echo " "
 echo "-------------------------------"
 sleep 1
-apt-get install docker-ce docker-ce-cli containerd.io
+apt-get install docker-ce docker-ce-cli containerd.io -y
 sleep 5
 echo "-------------------------------"
 echo " "
