@@ -125,7 +125,7 @@ docker inspect -f '{{range.NetworkSettings.Networks}}{{.IPAddress}}{{end}}' sql-
 ip = tail ip.txt
 git clone https://github.com/keahi32/basededatos &>/dev/null
 cd basededatos
-mysql -u username -h $ip -p docker < docker.sql &>/dev/null
+mysql -u username -h $ip -p docker < docker.sql 
 clear
 echo "-------------------------------"
 echo " "
