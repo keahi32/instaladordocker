@@ -116,6 +116,6 @@ docker container run --name Login -p 8081:80 -d webdevops/php-apache &>/dev/null
 clear
 echo "-------------------------------"
 echo " "
-echo "Enhorabuena Docker + Portainer + MariaDB esta instalado"
+echo "Enhorabuena Docker + Portainer + MariaDB + Docker Login + Docker Registro esta instalado"
 echo " "
 echo "-------------------------------"
