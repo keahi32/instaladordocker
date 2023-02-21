@@ -127,6 +127,7 @@ ip = tail ip.txt
 git clone https://github.com/keahi32/basededatos &>/dev/null
 cd basededatos
 mysql -u username -h $ip -p docker < docker.sql &>/dev/null
+clear
 echo "-------------------------------"
 echo " "
 echo "Instalando Webmin"
@@ -137,6 +138,14 @@ sudo echo "deb https://download.webmin.com/download/repository sarge contrib" > 
 curl https://download.webmin.com/jcameron-key.asc | sudo apt-key add - &>/dev/null
 sudo apt-get update &>/dev/null
 sudo apt-get install webmin &>/dev/null
+clear
+echo "-------------------------------"
+echo " "
+echo "Escriba nueva contraseña para root"
+echo " "
+echo "-------------------------------"
+passwd root
+clear
 echo "-------------------------------"
 echo " "
 echo "Enhorabuena Docker + Portainer + MariaDB + Docker Login + Docker Registro + Base de datos Importada + Webmin"
