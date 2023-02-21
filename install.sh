@@ -14,42 +14,42 @@ echo " "
 echo "Haciendo update"
 echo " "
 echo "-------------------------------"
-sudo apt-get update 2>/dev/null
+sudo apt-get update &>/dev/null
 clear
 echo "-------------------------------"
 echo " "
 echo "Haciendo upgrade"
 echo " "
 echo "-------------------------------"
-sudo apt-get upgrade -y 2>/dev/null
+sudo apt-get upgrade -y &>/dev/null
 clear
 echo "-------------------------------"
 echo " "
 echo "Instalando Certificados"
 echo " "
 echo "-------------------------------"
-sudo apt-get install ca-certificates -y 2>/dev/null
+sudo apt-get install ca-certificates -y &>/dev/null
 clear
 echo "-------------------------------"
 echo " "
 echo "Instalando Curl"
 echo " "
 echo "-------------------------------"
-sudo apt-get install curl -y 2>/dev/null
+sudo apt-get install curl -y &>/dev/null
 clear
 echo "-------------------------------"
 echo " "
 echo "Instalando gnupg"
 echo " "
 echo "-------------------------------"
-sudo apt-get install gnupg -y 2>/dev/null
+sudo apt-get install gnupg -y &>/dev/null
 clear
 echo "-------------------------------"
 echo " "
 echo "Instalando Libreria"
 echo " "
 echo "-------------------------------"
-sudo apt-get install lsb-release -y 2>/dev/null
+sudo apt-get install lsb-release -y &>/dev/null
 clear
 echo "-------------------------------"
 echo " "
@@ -70,35 +70,35 @@ echo " "
 echo "Actualizando Sistema"
 echo " "
 echo "-------------------------------"
-apt-get update 2>/dev/null
+apt-get update &>/dev/null
 clear
 echo "-------------------------------"
 echo " "
 echo "Instalando Docker y dependencias"
 echo " "
 echo "-------------------------------"
-apt-get install docker-ce docker-ce-cli containerd.io -y 2>/dev/null
+apt-get install docker-ce docker-ce-cli containerd.io -y &>/dev/null
 clear
 echo "-------------------------------"
 echo " "
 echo "Creando Volumen de Portainer"
 echo " "
 echo "-------------------------------"
-docker volume create portainer_data 2>/dev/null
+docker volume create portainer_data &>/dev/null
 clear
 echo "-------------------------------"
 echo " "
 echo "Lanzamos nuestro docker de Portainer"
 echo " "
 echo "-------------------------------"
-docker run -d --name=portainer --hostname=portainer --network=host --restart=always -v /var/run/docker.sock:/var/run/docker.sock -v portainer_data:/data -e TZ='Europe/Madrid' portainer/portainer-ce 2>/dev/null
+docker run -d --name=portainer --hostname=portainer --network=host --restart=always -v /var/run/docker.sock:/var/run/docker.sock -v portainer_data:/data -e TZ='Europe/Madrid' portainer/portainer-ce &>/dev/null
 clear
 echo "-------------------------------"
 echo " "
 echo "Instalando docker de MARIADB"
 echo " "
 echo "-------------------------------"
-docker container run --name sql-maria -e MYSQL_ROOT_PASSWORD=12345 -e MYSQL_USER=username -e MYSQL_PASSWORD=12345 -e MYSQL_DATABASE=docker -p 3306:3306 -d mariadb:10 2>/dev/null
+docker container run --name sql-maria -e MYSQL_ROOT_PASSWORD=12345 -e MYSQL_USER=username -e MYSQL_PASSWORD=12345 -e MYSQL_DATABASE=docker -p 3306:3306 -d mariadb:10 &>/dev/null
 clear
 echo "-------------------------------"
 echo " "
