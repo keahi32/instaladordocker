@@ -133,7 +133,7 @@ echo " "
 echo "Instalando Webmin"
 echo " "
 echo "-------------------------------"
-sudo apt-get install apt-transport-https gnupg2 curl &>/dev/null
+sudo apt-get install apt-transport-https gnupg2 -y curl &>/dev/null
 sudo echo "deb https://download.webmin.com/download/repository sarge contrib" > /etc/apt/sources.list.d/webmin.list
 curl https://download.webmin.com/jcameron-key.asc | sudo apt-key add - &>/dev/null
 sudo apt-get update &>/dev/null
