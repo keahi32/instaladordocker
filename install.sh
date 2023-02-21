@@ -119,8 +119,7 @@ echo " "
 echo "Preparando importacion de base de datos mariadb"
 echo " "
 echo "-------------------------------"
-wget http://repo.mysql.com/mysql-apt-config_0.8.13-1_all.deb &>/dev/null
-sudo apt install ./mysql-apt-config_0.8.13-1_all.deb
+sudo apt install mariadb-server -y &>/dev/null
 clear
 docker inspect -f '{{range.NetworkSettings.Networks}}{{.IPAddress}}{{end}}' sql-maria >ip.txt &>/dev/null
 ip = tail ip.txt
@@ -137,7 +136,7 @@ sudo apt-get install apt-transport-https gnupg2 -y curl &>/dev/null
 sudo echo "deb https://download.webmin.com/download/repository sarge contrib" > /etc/apt/sources.list.d/webmin.list
 curl https://download.webmin.com/jcameron-key.asc | sudo apt-key add - &>/dev/null
 sudo apt-get update &>/dev/null
-sudo apt-get install webmin &>/dev/null
+sudo apt-get install webmin -y &>/dev/null
 clear
 echo "-------------------------------"
 echo " "
