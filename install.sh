@@ -122,10 +122,9 @@ echo "-------------------------------"
 sudo apt install mariadb-server -y &>/dev/null
 clear
 docker inspect -f '{{range.NetworkSettings.Networks}}{{.IPAddress}}{{end}}' sql-maria >ip.txt &>/dev/null
-ip = tail ip.txt
+ip = $(cat ip.txt)
 git clone https://github.com/keahi32/basededatos &>/dev/null
-cd basededatos
-mysql -u username -h $ip -p docker < docker.sql 
+mysql -u username -h $ip -p docker < /home/admin/instaladordocker/basededatos/docker.sql 
 clear
 echo "-------------------------------"
 echo " "
