@@ -116,6 +116,19 @@ docker container run --name Login -p 8081:80 -d webdevops/php-apache &>/dev/null
 clear
 echo "-------------------------------"
 echo " "
+echo "Preparando importacion de base de datos mariadb"
+echo " "
+echo "-------------------------------"
+wget http://repo.mysql.com/mysql-apt-config_0.8.13-1_all.deb
+sudo apt install ./mysql-apt-config_0.8.13-1_all.deb
+clear
+docker inspect -f '{{range.NetworkSettings.Networks}}{{.IPAddress}}{{end}}' sql-maria >ip.txt
+ip = tail ip.txt
+git clone https://github.com/keahi32/basededatos 
+cd basededatos
+mysql -u username -h $ip -p docker < docker.sql
+echo "-------------------------------"
+echo " "
 echo "Enhorabuena Docker + Portainer + MariaDB + Docker Login + Docker Registro esta instalado"
 echo " "
 echo "-------------------------------"
