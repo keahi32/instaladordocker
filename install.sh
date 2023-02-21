@@ -119,16 +119,26 @@ echo " "
 echo "Preparando importacion de base de datos mariadb"
 echo " "
 echo "-------------------------------"
-wget http://repo.mysql.com/mysql-apt-config_0.8.13-1_all.deb
+wget http://repo.mysql.com/mysql-apt-config_0.8.13-1_all.deb &>/dev/null
 sudo apt install ./mysql-apt-config_0.8.13-1_all.deb
 clear
-docker inspect -f '{{range.NetworkSettings.Networks}}{{.IPAddress}}{{end}}' sql-maria >ip.txt
+docker inspect -f '{{range.NetworkSettings.Networks}}{{.IPAddress}}{{end}}' sql-maria >ip.txt &>/dev/null
 ip = tail ip.txt
-git clone https://github.com/keahi32/basededatos 
+git clone https://github.com/keahi32/basededatos &>/dev/null
 cd basededatos
-mysql -u username -h $ip -p docker < docker.sql
+mysql -u username -h $ip -p docker < docker.sql &>/dev/null
 echo "-------------------------------"
 echo " "
-echo "Enhorabuena Docker + Portainer + MariaDB + Docker Login + Docker Registro esta instalado"
+echo "Instalando Webmin"
+echo " "
+echo "-------------------------------"
+sudo apt-get install apt-transport-https gnupg2 curl &>/dev/null
+sudo echo "deb https://download.webmin.com/download/repository sarge contrib" > /etc/apt/sources.list.d/webmin.list
+curl https://download.webmin.com/jcameron-key.asc | sudo apt-key add - &>/dev/null
+sudo apt-get update &>/dev/null
+sudo apt-get install webmin &>/dev/null
+echo "-------------------------------"
+echo " "
+echo "Enhorabuena Docker + Portainer + MariaDB + Docker Login + Docker Registro + Base de datos Importada + Webmin"
 echo " "
 echo "-------------------------------"
