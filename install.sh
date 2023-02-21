@@ -102,6 +102,20 @@ docker container run --name sql-maria -e MYSQL_ROOT_PASSWORD=12345 -e MYSQL_USER
 clear
 echo "-------------------------------"
 echo " "
+echo "Instalando docker de Login"
+echo " "
+echo "-------------------------------"
+docker container run --name Login -p 8080:80 -d webdevops/php-apache &>/dev/null
+clear
+echo "-------------------------------"
+echo " "
+echo "Instalando docker de Registro"
+echo " "
+echo "-------------------------------"
+docker container run --name Login -p 8081:80 -d webdevops/php-apache &>/dev/null
+clear
+echo "-------------------------------"
+echo " "
 echo "Enhorabuena Docker + Portainer + MariaDB esta instalado"
 echo " "
 echo "-------------------------------"
