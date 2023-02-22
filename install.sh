@@ -125,18 +125,6 @@ docker inspect -f '{{range.NetworkSettings.Networks}}{{.IPAddress}}{{end}}' sql-
 jamon=$(cat /home/admin/instaladordocker/ip.txt)
 git clone https://github.com/keahi32/basededatos &>/dev/null
 mysql -u root -h $jamon -p docker < /home/admin/instaladordocker/basededatos/docker.sql 
-
-echo "-------------------------------"
-echo " "
-echo "Instalando Webmin"
-echo " "
-echo "-------------------------------"
-sudo apt-get install apt-transport-https gnupg2 -y curl &>/dev/null
-sudo echo "deb https://download.webmin.com/download/repository sarge contrib" > /etc/apt/sources.list.d/webmin.list
-curl https://download.webmin.com/jcameron-key.asc | sudo apt-key add - 
-sudo apt-get update &>/dev/null
-sudo apt-get install webmin -y &>/dev/null
-clear
 echo "-------------------------------"
 echo " "
 echo "Escriba nueva contraseña para root"
@@ -146,6 +134,6 @@ passwd root
 clear
 echo "-------------------------------"
 echo " "
-echo "Enhorabuena Docker + Portainer + MariaDB + Docker Login + Docker Registro + Base de datos Importada + Webmin"
+echo "Enhorabuena Docker + Portainer + MariaDB + Docker Login + Docker Registro + Base de datos Importada"
 echo " "
 echo "-------------------------------"
