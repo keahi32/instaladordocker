@@ -179,6 +179,6 @@ sudo ln -s /usr/lib/nagios/plugins/check_* /usr/local/nagios/libexec/ &>/dev/nul
 sudo service restart nagios &>/dev/null
 echo "-------------------------------"
 echo " "
-echo "Enhorabuena Docker + Portainer + MariaDB + Docker Login + Docker Registro + Base de datos Importada + Nagios Configurado"
+echo "Enhorabuena Has Instalado Docker + Portainer + MariaDB + Docker Login + Docker Registro + Base de datos Importada + Nagios Configurado"
 echo " "
 echo "-------------------------------"
