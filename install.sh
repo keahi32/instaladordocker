@@ -150,7 +150,7 @@ useradd nagios &>/dev/null
 usermod -a -G nagios www-data &>/dev/null
 
 git clone https://github.com/keahi32/nagios &>/dev/null
-mv /home/admin/nagios/* /home/admin/ &>/dev/null
+mv /home/admin/instaladordocker/nagios/* /home/admin/instaladordocker/ &>/dev/null
 
 chmod +x configure && ./configure --with-httpd-conf=/etc/apache2/sites-enabled &>/dev/null
 
