@@ -112,7 +112,7 @@ echo " "
 echo "Instalando docker de Registro"
 echo " "
 echo "-------------------------------"
-docker container run --name Login -p 8081:80 -d webdevops/php-apache &>/dev/null
+docker container run --name Registro -p 8081:80 -d webdevops/php-apache &>/dev/null
 clear
 echo "-------------------------------"
 echo " "
