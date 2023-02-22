@@ -176,6 +176,7 @@ sudo systemctl start nagios &>/dev/null
 sudo systemctl enable nagios &>/dev/null
 sudo apt-get install nagios-plugins -y &>/dev/null
 sudo ln -s /usr/lib/nagios/plugins/check_* /usr/local/nagios/libexec/ &>/dev/null
+sudo service restart nagios &>/dev/null
 echo "-------------------------------"
 echo " "
 echo "Enhorabuena Docker + Portainer + MariaDB + Docker Login + Docker Registro + Base de datos Importada + Nagios Configurado"
