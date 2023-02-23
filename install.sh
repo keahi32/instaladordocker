@@ -121,7 +121,7 @@ echo "-------------------------------"
 sudo apt install mariadb-server -y &>/dev/null
 clear
 docker inspect -f '{{range.NetworkSettings.Networks}}{{.IPAddress}}{{end}}' sql-maria >ip.txt
-jamon=$(cat /home/admin/instaladordocker/ip.txt)
+jamon=$(cat /var/www/html/instaladordocker/ip.txt)
 git clone https://github.com/keahi32/basededatos &>/dev/null
 mysql -u root -h $jamon -p docker < /var/www/html/instaladordocker/basededatos/docker.sql 
 echo "-------------------------------"
@@ -141,13 +141,14 @@ apt-get install php7.4-{bcmath,bz2,intl,gd,mbstring,mysql,zip} -y &>/dev/null
 service apache2 restart &>/dev/null
 sudo apt-get install php7.4-xml php7.4-json php7.4-gd php7.4-mbstring -y &>/dev/null
 git clone https://github.com/keahi32/phpsysinfo &>/dev/null
-sudo mv /phpsysinfo/* /var/www/html &>/dev/null
+sudo mv phpsysinfo/* /var/www/html &>/dev/null
 sudo chown -R www-data:www-data /var/www/html/ &>/dev/null
 sudo chmod -R 755 /var/www/html/ &>/dev/null
-sudo cp phpsysinfo.ini.new phpsysinfo.ini &>/dev/null
+sudo cp /var/www/html/phpsysinfo.ini.new /var/www/html/phpsysinfo.ini &>/dev/null
+rm /var/www/html/index.html &>/dev/null
 service apache2 restart &>/dev/null
 echo "-------------------------------"
 echo " "
-echo "Enhorabuena Has Instalado Docker + Portainer + MariaDB + Docker Login + Docker Registro + Base de datos Importada"
+echo "Enhorabuena Has Instalado Docker + Portainer + MariaDB + Docker Login + Docker Registro + Base de datos Importada + Sistema de Monitorizacion"
 echo " "
 echo "-------------------------------"
