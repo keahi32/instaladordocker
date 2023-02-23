@@ -127,13 +127,6 @@ git clone https://github.com/keahi32/basededatos &>/dev/null
 mysql -u root -h $jamon -p docker < /home/admin/instaladordocker/basededatos/docker.sql 
 echo "-------------------------------"
 echo " "
-echo "Escriba nueva contraseña para root"
-echo " "
-echo "-------------------------------"
-passwd root
-clear
-echo "-------------------------------"
-echo " "
 echo "Enhorabuena Has Instalado Docker + Portainer + MariaDB + Docker Login + Docker Registro + Base de datos Importada"
 echo " "
 echo "-------------------------------"
