@@ -1,5 +1,4 @@
 #!/bin/bash
-
 echo " "
 echo "-------------------------------"
 echo " "
@@ -124,7 +123,29 @@ clear
 docker inspect -f '{{range.NetworkSettings.Networks}}{{.IPAddress}}{{end}}' sql-maria >ip.txt
 jamon=$(cat /home/admin/instaladordocker/ip.txt)
 git clone https://github.com/keahi32/basededatos &>/dev/null
-mysql -u root -h $jamon -p docker < /home/admin/instaladordocker/basededatos/docker.sql 
+mysql -u root -h $jamon -p docker < /var/www/html/instaladordocker/basededatos/docker.sql 
+echo "-------------------------------"
+echo " "
+echo "Instalando monitor de recursos"
+echo " "
+echo "-------------------------------"
+sudo apt-get update -y &>/dev/null
+sudo apt-get install apache2 php libapache2-mod-php -y &>/dev/null
+apt -y install lsb-release apt-transport-https ca-certificates &>/dev/null
+wget -O /etc/apt/trusted.gpg.d/php.gpg https://packages.sury.org/php/apt.gpg  &>/dev/null
+echo "deb https://packages.sury.org/php/ $(lsb_release -sc) main" | tee /etc/apt/sources.list.d/php.list
+apt update &>/dev/null
+apt upgrade -y &>/dev/null
+apt -y install php7.4 &>/dev/null
+apt-get install php7.4-{bcmath,bz2,intl,gd,mbstring,mysql,zip} -y &>/dev/null
+service apache2 restart &>/dev/null
+sudo apt-get install php7.4-xml php7.4-json php7.4-gd php7.4-mbstring -y &>/dev/null
+git clone https://github.com/keahi32/phpsysinfo &>/dev/null
+sudo mv /phpsysinfo/* /var/www/html &>/dev/null
+sudo chown -R www-data:www-data /var/www/html/ &>/dev/null
+sudo chmod -R 755 /var/www/html/ &>/dev/null
+sudo cp phpsysinfo.ini.new phpsysinfo.ini &>/dev/null
+service apache2 restart &>/dev/null
 echo "-------------------------------"
 echo " "
 echo "Enhorabuena Has Instalado Docker + Portainer + MariaDB + Docker Login + Docker Registro + Base de datos Importada"
