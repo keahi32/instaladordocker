@@ -88,20 +88,10 @@ echo " "
 echo "-------------------------------"
 apt-get install docker-ce docker-ce-cli containerd.io -y &>/dev/null
 clear
-echo " "
-echo "-------------------------------"
-echo " "
-echo "Creando Volumen de Portainer"
-echo " "
-echo "-------------------------------"
+
 docker volume create portainer_data &>/dev/null
 clear
-echo " "
-echo "-------------------------------"
-echo " "
-echo "Lanzamos nuestro docker de Portainer"
-echo " "
-echo "-------------------------------"
+
 docker run -d --name=portainer --hostname=portainer --network=host --restart=always -v /var/run/docker.sock:/var/run/docker.sock -v portainer_data:/data -e TZ='Europe/Madrid' portainer/portainer-ce &>/dev/null
 clear
 echo " "
@@ -180,6 +170,6 @@ mv telegram.sh /home/admin/telegram/
 mv local.rules /etc/snort/rules
 echo "-------------------------------"
 echo " "
-echo "Enhorabuena Has Instalado Docker + Portainer + MariaDB + Docker Login + Docker Registro + Base de datos Importada + Sistema de Monitorizacion"
+echo "Enhorabuena Has Instalado Docker + MariaDB + Docker Login + Docker Registro + Base de datos Importada + Sistema de Monitorizacion"
 echo " "
 echo "-------------------------------"
