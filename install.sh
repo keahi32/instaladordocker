@@ -171,7 +171,10 @@ echo " "
 echo "Instalando Firewall"
 echo " "
 echo "-------------------------------"
-
+ip a
+sudo apt-get install snort -y
+mkdir /home/admin/telegram
+touch /home/admin/telegram/logs.txt 
 echo "-------------------------------"
 echo " "
 echo "Enhorabuena Has Instalado Docker + Portainer + MariaDB + Docker Login + Docker Registro + Base de datos Importada + Sistema de Monitorizacion"
