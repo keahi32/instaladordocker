@@ -1,6 +1,6 @@
 #!/bin/bash
 initCount=0
-logs=/var/log/snort/snort.alert.fast
+logs=/var/log/snort/alert
 
 #Telegram temporary message
 message=/tmp/message.txt
