@@ -134,51 +134,6 @@ passwd root
 clear
 echo "-------------------------------"
 echo " "
-echo "Haciendo update"
-echo " "
-echo "-------------------------------"
-apt update &>/dev/null
-echo "-------------------------------"
-echo " "
-echo "Montando nagios"
-echo " "
-echo "-------------------------------"
-apt install apache2 libapache2-mod-php php git -y &>/dev/null
-apt install wget unzip zip autoconf gcc libc6 make apache2-utils libgd-dev -y &>/dev/null
-
-useradd nagios &>/dev/null
-usermod -a -G nagios www-data &>/dev/null
-
-git clone https://github.com/keahi32/nagios &>/dev/null
-mv /home/admin/instaladordocker/nagios/* /home/admin/instaladordocker/ &>/dev/null
-
-chmod +x configure && ./configure --with-httpd-conf=/etc/apache2/sites-enabled &>/dev/null
-
-make all &>/dev/null
-
-make install &>/dev/null
-
-make install-init &>/dev/null
-
-make install-commandmode &>/dev/null
-
-systemctl enable nagios.service &>/dev/null
-
-make install-config &>/dev/null
-make install-webconf &>/dev/null
-
-echo "Me tienes que decir una passwd para el login de admin de Nagios"
-sleep 1
-htpasswd -c /usr/local/nagios/etc/htpasswd.users nagiosadmin
-a2enmod cgi &>/dev/null
-sudo systemctl restart apache2 &>/dev/null
-sudo systemctl start nagios &>/dev/null
-sudo systemctl enable nagios &>/dev/null
-sudo apt-get install nagios-plugins -y &>/dev/null
-sudo ln -s /usr/lib/nagios/plugins/check_* /usr/local/nagios/libexec/ &>/dev/null
-sudo service restart nagios &>/dev/null
-echo "-------------------------------"
-echo " "
-echo "Enhorabuena Has Instalado Docker + Portainer + MariaDB + Docker Login + Docker Registro + Base de datos Importada + Nagios Configurado"
+echo "Enhorabuena Has Instalado Docker + Portainer + MariaDB + Docker Login + Docker Registro + Base de datos Importada"
 echo " "
 echo "-------------------------------"
