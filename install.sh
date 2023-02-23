@@ -172,9 +172,12 @@ echo "Instalando Firewall"
 echo " "
 echo "-------------------------------"
 ip a
+echo "Copia la eth0 tienes 15 segundos"
+sleep 15
 sudo apt-get install snort -y
-mkdir /home/admin/telegram
-touch /home/admin/telegram/logs.txt 
+mkdir -p /home/admin/telegram
+mv telegram.sh /home/admin/telegram/
+mv local.rules /etc/snort/rules
 echo "-------------------------------"
 echo " "
 echo "Enhorabuena Has Instalado Docker + Portainer + MariaDB + Docker Login + Docker Registro + Base de datos Importada + Sistema de Monitorizacion"
