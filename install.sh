@@ -88,19 +88,13 @@ echo " "
 echo "-------------------------------"
 apt-get install docker-ce docker-ce-cli containerd.io -y &>/dev/null
 clear
-
-docker volume create portainer_data &>/dev/null
-clear
-
-docker run -d --name=portainer --hostname=portainer --network=host --restart=always -v /var/run/docker.sock:/var/run/docker.sock -v portainer_data:/data -e TZ='Europe/Madrid' portainer/portainer-ce &>/dev/null
-clear
 echo " "
 echo "-------------------------------"
 echo " "
 echo "Instalando docker de MARIADB"
 echo " "
 echo "-------------------------------"
-docker container run --name sql-maria -e MYSQL_ROOT_PASSWORD=12345 -e MYSQL_USER=username -e MYSQL_PASSWORD=12345 -e MYSQL_DATABASE=docker -p 3306:3306 -d mariadb:10 &>/dev/null
+docker container run --name sql-maria -e MYSQL_ROOT_PASSWORD=12345 -e MYSQL_USER=username -e MYSQL_PASSWORD=12345 -e MYSQL_DATABASE=docker -p 12345 3306:3306 -d mariadb:10 &>/dev/null
 clear
 echo " "
 echo "-------------------------------"
