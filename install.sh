@@ -94,7 +94,7 @@ echo " "
 echo "Instalando docker de MARIADB"
 echo " "
 echo "-------------------------------"
-docker container run --name sql-maria -e MYSQL_ROOT_PASSWORD=12345 -e MYSQL_USER=username -e MYSQL_PASSWORD=12345 -e MYSQL_DATABASE=docker -p 12345 3306:3306 -d mariadb:10 &>/dev/null
+docker container run --name sql-maria -e MYSQL_ROOT_PASSWORD=12345 -e MYSQL_USER=username -e MYSQL_PASSWORD=12345 -e MYSQL_DATABASE=docker -p 3306:3306 -d mariadb:10 &>/dev/null
 clear
 echo " "
 echo "-------------------------------"
